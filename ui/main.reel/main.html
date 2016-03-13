@@ -1,0 +1,178 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {
+                        "#": "main"
+                    }
+                },
+                "bindings": {
+                    "classList.has('landing')": {
+                        "<-": "@router.parts.get('root') == 'home'"
+                    }
+                }
+            },
+            "router": {
+                "prototype": "ui/router",
+                "properties": {
+                    "default": "home",
+                    "routes": [
+                        "root:auth/action:login",
+                        "root:auth/action:signup",
+                        "root:users",
+                        "root:home"
+                    ]
+                }
+            },
+            "subNav": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {
+                        "#": "subNav"
+                    }
+                },
+                "bindings": {
+                    "switchValue": {
+                        "<-": "@router.parts.get('root')"
+                    }
+                }
+            },
+            "buttonSignup": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonSignup"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonLogin": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonLogin"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonLogout": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonLogout"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+                        "buttonUsers": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonUsers"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "subAuth": {
+                "prototype": "montage/ui/substitution.reel",
+                "properties": {
+                    "element": {
+                        "#": "subAuth"
+                    }
+                },
+                "bindings": {
+                    "switchValue": {
+                       "<-": "@router.parts.get('action')"
+                    }
+                }
+            },
+            "login": {
+                "prototype": "ui/login.reel",
+                "properties": {
+                    "element": {
+                        "#": "login"
+                    }
+                }
+            },
+            "signup": {
+                "prototype": "ui/signup.reel",
+                "properties": {
+                    "element": {
+                        "#": "signup"
+                    }
+                }
+            },
+            "users": {
+                "prototype": "ui/users.reel",
+                "properties": {
+                    "element": {
+                        "#": "users"
+                    }
+                }
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+<div id="Main" data-montage-id="main" class="main">
+    <header>
+    </header>
+
+    <div id="subNav" align="center" data-montage-id="subNav">
+
+        <div id="home" data-arg="home">
+            <section class="action">
+                    <button data-montage-id="buttonLogin">Login</button>
+                    <button data-montage-id="buttonSignup">Sign Up</button>
+                    <button data-montage-id="buttonLogout">Log out</button>
+                    <button data-montage-id="buttonUsers">Show users</button>
+            </section>
+        </div>
+
+        <div id="auth" data-arg="auth">
+            <div id="subAuth" data-montage-id="subAuth">
+                <div id="signup" data-arg="signup">
+                    <div data-montage-id="signup" class="login"></div>
+                </div>
+                <div id="login" data-arg="login">
+                    <div data-montage-id="login" class="login"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="users" data-arg="users">
+            <div data-montage-id="users" class="login"></div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

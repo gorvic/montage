@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>MontageJS Application</title>
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+
+	<link href="assets/styles/main.css" rel="stylesheet"/>
+
+	<script type="text/javascript" src="http://use.typekit.net/dlx4ppg.js"></script>
+	<script type="text/javascript">try {
+		Typekit.load();
+	} catch (e) {
+	}</script>
+
+	<link rel="stylesheet" href="//code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css">
+
+	<script src="node_modules/montage/montage.js" async></script>
+
+    <script type="text/montage-serialization">
+	{
+        "owner": {
+            "prototype": "montage/ui/loader.reel"
+        },
+        "application": {
+            "prototype": "montage/core/application",
+            "properties": {
+                "delegate": {"@": "appDelegate"}
+            }
+        },
+        "appDelegate": {
+            "prototype": "app-delegate"
+        }
+    }
+    </script>
+</head>
+<body>
+    <span class="loading">Loading...</span>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="login.css"/>
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {   "#": "login"}
+                }
+            },
+            "router": {
+                "prototype": "ui/router",
+                "properties": {
+                    "default": "home",
+                    "routes": [
+                        "root:auth/action:login",
+                        "root:auth/action:signup",
+                        "root:users",
+                        "root:home"
+                    ]
+                }
+            },
+            "authToken": {
+                "prototype": "ui/auth-token"
+            },
+            "error": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "error"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.error"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "!@owner.error"
+                    }
+                }
+            },
+            "success": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "success"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.success"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "!@owner.success"
+                    }
+                }
+            },
+            "inputEmail": {
+                "prototype": "digit/ui/text-field.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputEmail"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.email"
+                    }
+                }
+            },
+            "inputPassword": {
+                "prototype": "digit/ui/text-field.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputPassword"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.password"
+                    }
+                }
+            },
+            "buttonLogin": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonLogin"
+                    }
+                },
+                "bindings": {
+                    "label": {
+                        "<-": "'Login'"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "buttonHome": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonHome"
+                    }
+                },
+                "bindings": {
+                    "label": {
+                        "<-": "'Home'"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            }
+        }
+    </script>
+</head>
+
+<!--"buttonUsers": {-->
+<!--"prototype": "montage/ui/button.reel",-->
+<!--"properties": {-->
+<!--"element": {-->
+<!--"#": "buttonUsers"-->
+<!--}-->
+<!--},-->
+<!--"bindings": {-->
+<!--"label": {-->
+<!--"<-": "'Show Users'"-->
+<!--}-->
+<!--},-->
+<!--"listeners": [{-->
+<!--"type": "action",-->
+<!--"listener": {-->
+<!--"@": "owner"-->
+<!--}-->
+<!--}]-->
+<!--},-->
+<body>
+<div id="login1" data-montage-id="login" class="Login">
+    <p data-montage-id="error" class="error">This is an error message</p>
+    <p data-montage-id="success" class="success">This is an success message</p>
+    <!--<div class="container">-->
+        <!--<button id="buttonUsers" data-montage-id="buttonUsers"></button>-->
+    <!--</div>-->
+    <div class="container">
+        <input id="inputMail" type="text" data-montage-id="inputEmail" placeholder="E-MAIL"/>
+        <input id="inputPassword" type="password" data-montage-id="inputPassword" placeholder="PASSWORD"/>
+    </div>
+    <div class="container">
+        <button id="buttonLogin" data-montage-id="buttonLogin"></button>
+        <button id="buttonHome" data-montage-id="buttonHome"></button>
+    </div>
+</div>
+</div>
+</body>
+
+</html>

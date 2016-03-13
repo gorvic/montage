@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="users.css">
+    <script type="text/montage-serialization">
+    {
+        "owner": {
+            "properties": {
+                "element": {"#": "users"}
+            }
+        },
+                "error": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {
+                    "#": "error"
+                }
+            },
+            "bindings": {
+                "value": {
+                    "<-": "@owner.error"
+                },
+                "classList.has('hidden')": {
+                    "<-": "!@owner.error"
+                }
+            }
+        },
+        "success": {
+            "prototype": "montage/ui/text.reel",
+            "properties": {
+                "element": {
+                    "#": "success"
+                }
+            },
+            "bindings": {
+                "value": {
+                    "<-": "@owner.success"
+                },
+                "classList.has('hidden')": {
+                    "<-": "!@owner.success"
+                }
+            }
+        },
+                      "buttonHome": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonHome"
+                    }
+                },
+                "bindings": {
+                    "label": {
+                        "<-": "'Home'"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+            "rep": {
+                "prototype": "montage/ui/repetition.reel",
+                "properties": {
+                    "element": { "#": "items" },
+                    "isSelectionEnabled": true
+                },
+                 "bindings": {
+                      "content": {"<-": "@owner.users.sorted{-isAdmin}"}
+                }
+              },
+            "item": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": { "#": "item" }
+                },
+                "bindings": {
+                   "value": {"<-": "@rep.objectAtCurrentIteration.email"}
+               }
+            },
+            "currentsub": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {"#": "currentsub"}
+                },
+                "bindings": {
+                    "value": {"<-": "@rep.selection.0.isAdmin ?? 'Please Select a User'"}
+                }
+            }
+    }
+    </script>
+</head>
+<body>
+    <div data-montage-id="users" class="login">
+        <p data-montage-id="error" class="error">This is an error message</p>
+        <p data-montage-id="success" class="success">This is an success message</p>
+        <h4 data-montage-id="currentsub"></h4>
+
+        <ul data-montage-id="items">
+            <li data-montage-id="item"></li>
+        </ul>
+        <div class="container">
+            <button id="buttonHome" data-montage-id="buttonHome"></button>
+        </div>
+    </div>
+</body>
+</html>

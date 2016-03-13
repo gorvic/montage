@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="signup.css">
+    <script type="text/montage-serialization">
+        {
+            "owner": {
+                "properties": {
+                    "element": {"#": "signup"}
+                }
+            },
+            "error": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "error"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.error"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "!@owner.error"
+                    }
+                }
+            },
+            "success": {
+                "prototype": "montage/ui/text.reel",
+                "properties": {
+                    "element": {
+                        "#": "success"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<-": "@owner.success"
+                    },
+                    "classList.has('hidden')": {
+                        "<-": "!@owner.success"
+                    }
+                }
+            },
+            "inputEmail": {
+                "prototype": "digit/ui/text-field.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputEmail"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.email"
+                    }
+                }
+            },
+            "inputPassword": {
+                "prototype": "digit/ui/text-field.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputPassword"
+                    }
+                },
+                "bindings": {
+                    "value": {
+                        "<->": "@owner.password"
+                    }
+                }
+            },
+            "inputRepeat": {
+                "prototype": "montage/ui/text-field.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputRepeat"
+                    },
+                    "value": ""
+                },
+                "bindings": {
+                    "classList.has('failed')": {
+                        "<-": "value != '' && value != @inputPassword.value"
+                    }
+                }
+            },
+            "inputIsAdmin": {
+                "prototype": "montage/ui/checkbox.reel",
+                "properties": {
+                    "element": {
+                        "#": "inputIsAdmin"
+                    }
+                },
+                "bindings": {
+                    "checked": {
+                        "<->": "@owner.isAdmin"
+                    }
+                }
+            },
+            "buttonSignup": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonSignup"
+                    }
+                },
+                 "bindings": {
+                    "label": {
+                        "<-": "'Sign Up'"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            },
+              "buttonHome": {
+                "prototype": "montage/ui/button.reel",
+                "properties": {
+                    "element": {
+                        "#": "buttonHome"
+                    }
+                },
+                "bindings": {
+                    "label": {
+                        "<-": "'Home'"
+                    }
+                },
+                "listeners": [{
+                    "type": "action",
+                    "listener": {
+                        "@": "owner"
+                    }
+                }]
+            }
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+<div data-montage-id="signup" class="login">
+    <p data-montage-id="error" class="error">This is an error message</p>
+    <p data-montage-id="success" class="success">This is an success message</p>
+
+    <div class="container">
+        <input type="checkbox" data-montage-id="inputIsAdmin" placeholder="Admin"/>Admin
+    </div>
+    <section class="container">
+        <input type="text" data-montage-id="inputEmail" placeholder="E-MAIL "/>
+        <input type="password" data-montage-id="inputPassword" placeholder="PASSWORD"/>
+        <input type="password" data-montage-id="inputRepeat" placeholder="CONFIRM PASSWORD"/>
+    </section>
+    <section class="container">
+        <button data-montage-id="buttonSignup"></button>
+        <button id="buttonHome" data-montage-id="buttonHome"></button>
+    </section>
+</div>
+</div>
+</body>
+
+</html>
